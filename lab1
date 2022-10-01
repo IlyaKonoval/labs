@@ -1,10 +1,17 @@
 #include <stdio.h>
+#include <math.h>
+double func1(double a, double b){
+    return pow((cos(a)-cos(b)),2) - pow((sin(a)-sin(b)),2);
+}
+
+double func2(double a,double b){
+    return -4*(pow(sin((a-b)/2),2))*cos(a+b);
+}
 int main() {
-    int a;
-    char str[200];
-    scanf("%d",&a);
-    fgets(str, 200, stdin);
-    printf("%d%s",a,"\n");
-    puts(str);
+    double a,b,z1,z2;
+    scanf("%lf%lf",&a,&b);
+    z1 = func1(a,b);
+    z2 = func2(a,b);
+    printf("%lf%c%lf",z1,' ',z2);
     return 0;
 }
