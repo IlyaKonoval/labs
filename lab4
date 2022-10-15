@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int n,x,y;                                  // 1 задание
+    scanf("%d",&n);
+    if ((n >= -100) && (n <= 100)){
+        printf("%s","YES");
+    }
+    else {
+        printf("%s","NO");
+    }
+
+    scanf("%d",&x);                      // 2 задание
+    if (x & (1 << 8)){
+        printf("%s","bit = 1");
+    }
+    else {
+        printf("%s","bit = 0");
+    }
+    return 0;
+}
