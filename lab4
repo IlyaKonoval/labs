@@ -1,14 +1,13 @@
 #include <iostream>
+long inRange(int l, int r, int n) {
+    long a = (r - n) & 2147483648;
+    long b = (n - l) & 2147483648;
+    return a+b;
+}
 int main() {
-    int n,x,y;                                  // 1 задание
+    int x,y,n;                                  // 1 задание
     scanf("%d",&n);
-    if ((n >= -100) && (n <= 100)){
-        printf("%s","YES");
-    }
-    else {
-        printf("%s","NO");
-    }
-
+    printf("%d",inRange(-100,100,n));
     scanf("%d",&x);                      // 2 задание
     if (x & (1 << 8)){
         printf("%s","bit = 1");
