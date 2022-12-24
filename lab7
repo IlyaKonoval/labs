@@ -1,17 +1,23 @@
 #include <stdio.h>
-    struct circle {
-        float diam;
-        float pi;
-        double length_circle;
+struct circle {
+    float diam;
+    float pi;
+    double length_circle;
+};
+float lenght(struct circle cir){
+    return cir.diam * cir.pi;
+};
+union keyboard {
+    int x;
+    struct {
+        int NumLock : 1;
+        int CapsLock : 1;
+        int ScrollLock : 1;
     };
-    float lenght(struct circle cir){
-        return cir.diam * cir.pi;
-    };
-
-
+} condition;
 
 int main() {
-    // 1
+    //1
     enum OC {
         Symbian,
         Embedded_Linux,
@@ -22,21 +28,13 @@ int main() {
     enum OC x;
     x = Symbian;
     printf("%d\n", x+1);
-    // 2
+    //2
     struct circle BIG;
-       BIG.diam = 10;
-       BIG.pi = 3.1415;
-       float len = lenght(BIG);
-       printf("%f\n", len);
-    // 3
-    union keyboard {
-        int x;
-        struct {
-            int NumLock : 1;
-            int CapsLock : 1;
-            int ScrollLock : 1;
-        };
-    } condition;
+    BIG.diam = 10;
+    BIG.pi = 3.1415;
+    float len = lenght(BIG);
+    printf("%f\n", len);
+    //3
     scanf("%d", &condition.x);
     condition.NumLock ? printf("NumLock ON \n") : printf("NumLock OFF \n");
     condition.CapsLock ? printf("CapsLock ON \n") : printf("CapsLock OFF \n");
