@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+int sum(int n);
+int NOD(int x, int y){
+    int z;
+    while (x != y){
+        if (x > y){
+            z = abs(x - y);
+            x = z;
+        }
+        else{
+            z = abs(y - x);
+            y = z;
+        }
+    }
+    return x;
+}
+int NOK(int a, int b){
+    return a*b / NOD(a, b);
+}
+int main() {
+    int el;
+    scanf('%d',&el);
+    // 3
+    int x;
+    int y;
+    scanf("%d", &x);
+    scanf("%d", &y);
+    printf("%d\n", NOD(x, y));
+    printf("%d", NOK(x, y));
+    // 4
+    printf("%d\n" , sum(el));
+}
+int sum(int n)
+{
+    if (n % 10 == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        return sum(n / 10) + (n % 10);
+    }
+}
