@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <math.h>
+struct isosceles_triangle {
+    int x1, x2, y1, y2, z1, z2;
+    int square;
+    int perim;
+};
+void Square(struct isosceles_triangle *temp){
+    temp->square = 0.5*(((temp->y1 - temp->x1)*(temp->z2 - temp->x2)) - ((temp->z1 - temp->x1)*(temp->y2 - temp->x2)));
+}
+void Perim(struct isosceles_triangle *tmp){
+    tmp->perim = sqrt(pow(tmp->x2 - tmp->x1, 2) + pow(tmp->y2 - tmp->y1, 2) + pow(tmp->z2 - tmp->z1, 2));
+}
+int main() {
+    int a, a1, b, b1, c, c1;
+    scanf("%d %d %d %d %d %d", &a, &a1, &b, &b1, &c, &c1);
+    struct isosceles_triangle n = {
+            a, a1, b, b1, c, c1
+    };
+    Square(&n);
+    Perim(&n);
+    printf("%d", n.square);
+    printf("%d",n.perim);
+    return 0;
+}
