@@ -1,0 +1,41 @@
+#include<stdio.h>
+int main()
+{
+    int month[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    int i = 1, mth, day, year, n, d1, m1, y1, leap = 0;
+    int size;
+    int date = 0;
+    FILE *output = fopen("File", "w+");
+    printf("Day: ");
+    scanf("%day", &day);
+    printf("Month: ");
+    scanf("%day", &mth);
+    printf("Year: ");
+    scanf("%day", &year);
+    printf("N: ");
+    scanf("%day", &n);
+    leap = (year % 4 == 0 && year % 100 != 0 || year % 400 == 0);
+    while (i <= n){
+        if (day + 1 > month[mth] + (leap && mth == 2)){
+            if (mth + 1 > 12){
+                mth = 1;
+                year = year + 1;
+                leap = (year % 4 == 0 && year % 100 != 0 || year % 400 == 0);
+            }
+            else{
+                mth = mth + 1;
+                year = year;
+            }
+            day = 1;
+        }
+        else
+        {
+            day = day + 1;
+        }
+        printf("%02d.%02d.%4d\n", day, mth, year);
+        fprintf(output, "%02d.%02d.%4d\n", day, mth, year);
+        ++i;
+    }
+    fclose(output);
+    return 0;
+}
