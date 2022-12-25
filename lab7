@@ -4,7 +4,7 @@ struct circle {
     float pi;
     double length_circle;
 };
-float lenght(struct circle cir){
+float lenght(struct circle *cir){
     return cir.diam * cir.pi;
 };
 union keyboard {
